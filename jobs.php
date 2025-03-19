@@ -19,7 +19,7 @@
         require_once("settings.php");
         $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
-        $sql = "SELECT job_name, job_reference, job_description, salary, report_to, responsibilities, res_details, essential, preferable FROM jobs";
+        $sql = "SELECT job_name, job_reference, job_description, salary, report_to, responsibilities, res_details, essential, essential_details, preferable FROM jobs";
         $result = $conn->query($sql);
     ?>
 
@@ -75,13 +75,47 @@
 
     <?php
         echo "<section class=\"essential\">";
-        echo "<p><strong>Essential:</strong> " . htmlspecialchars($row["essential"]) . "</p>";
+        echo "<p><strong>Essential:</strong></p>";
+                echo "<ul>";
+
+                // Explode the responsibilities and sub-details
+                $essentials = explode("{", $row["essential"]);
+                $essential_details = isset($row["essential_details"]) ? explode("{", $row["essential_details"]) : [];
+
+                // Ensure both arrays have the same length to avoid undefined index errors
+                $max = min(count($essentials), count($essential_details));
+
+                // Loop through responsibilities and pair them with their corresponding sub-details
+                for ($i = 0; $i < $max; $i++) {
+                    // Print the main responsibility
+                    $essential = trim($responsibilities[$i]);
+                    if (!empty($essential)) {
+                        echo "<li>" . htmlspecialchars($essential) . "</li>";
+                        
+                        // Print the corresponding sub-detail (if it exists)
+                        if (isset($essential_details[$i])) {
+                            $detail = trim($essential_details[$i]);
+                            if (!empty($detail)) {
+                                echo "<ul>";
+                                echo "<li>" . htmlspecialchars($detail) . "</li>";
+                                echo "</ul>";
+                            }
+                        }
+                    }
+                }
+                echo "</ul>";
         echo "</section>";
         echo "<section class=\"preferable\">";
-        echo "<p><strong>Preferable:</strong> " . htmlspecialchars($row["preferable"]) . "</p>";
-        echo "</section>";
-        echo "</div>";
+        echo "<p><strong>Preferable:</strong></p>";
+
+        echo "<ul>";
+        $preferables = explode("{", $row["preferable"]);
+        foreach ($preferables as $preferable) {
+            echo "<li>" . htmlspecialchars(trim($preferable)) . "</li>";
         }
+        echo "</ul>";
+    }
+
     } else {
         echo "<p>No jobs found.</p>";
     }
