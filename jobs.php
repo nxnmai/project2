@@ -31,6 +31,7 @@
 
             <!-- Main Content Container -->
             <section class="jobs-content">
+            <h1> Join TechCareers in the next Technology revolution!</h1>
 
     <?php
         if ($result->num_rows > 0) {
@@ -72,6 +73,7 @@
             
     ?>
         </section>
+        <br>
 
     <?php
         echo "<section class=\"essential\">";
@@ -105,6 +107,7 @@
                 }
                 echo "</ul>";
         echo "</section>";
+        echo "<br>";
         echo "<section class=\"preferable\">";
         echo "<p><strong>Preferable:</strong></p>";
 
@@ -114,6 +117,7 @@
             echo "<li>" . htmlspecialchars(trim($preferable)) . "</li>";
         }
         echo "</ul>";
+        echo "</section>";
     }
 
     } else {
@@ -122,6 +126,7 @@
 
     $conn->close();
     ?>
+    <a href="apply.php" id="to-apply">Apply Now!</a>
     </section>
     <aside>
         <h3>BENEFITS</h3>
