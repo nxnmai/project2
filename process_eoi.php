@@ -18,7 +18,7 @@ function sanitise_input($data)
 }
 
 // retrieve input
-$job_ref = $_POST["job_reference_number"];
+$job_ref = $_POST["job_reference"];
 $first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
 $birthday = $_POST["birthday"];
@@ -144,7 +144,7 @@ if (!empty($errMsg)) {
 }
 
 // database Insertion
-$mysqli = new mysqli($db_host, $db_user, $db_pass, $db_name);
+$mysqli = new mysqli($host, $user, $pwd, $sql_db);
 
 $sql = "INSERT INTO eoi (job_reference, first_name, last_name, gender, street_address, suburb, state, postcode, email, phone_number, other_skills) 
         VALUES ('$job_ref', '$first_name', '$last_name', '$gender', '$street_address', '$suburb_town', '$state', '$postcode', '$email_address', '$phone_number', '$other_skills')";
