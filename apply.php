@@ -92,8 +92,8 @@
                         <!-- pattern = max 40 characters -->
 
                         <!-- SUBURD/TOWN -->
-                        <label for="suburd_or_town">
-                            <input type="text" id="suburd_or_town" name="suburd_town" placeholder="Suburd / town"
+                        <label for="suburb_or_town">
+                            <input type="text" id="suburb_or_town" name="suburb_town" placeholder="Suburb / town"
                                 pattern="^.{1,40}$" required class="grilledoctopus-form-input"> </label>
                         <!-- pattern = max 40 characters -->
                     </div>
