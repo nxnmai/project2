@@ -21,33 +21,53 @@
 
         $sql = "SELECT job_name, job_reference, job_description, salary, report_to, responsibilities, essential, preferable FROM jobs";
         $result = $conn->query($sql);
+    ?>
 
+    <!-- Animation Container -->
+    <section class="animation">
+
+        <!-- Jobs.html Page Container -->
+        <section class="jobs">
+
+            <!-- Main Content Container -->
+            <section class="jobs-content">
+
+    <?php
         if ($result->num_rows > 0) {
             while ( $row = $result->fetch_assoc()){
-                echo "<div class='job-listing'>";
                 echo "<h2>" . htmlspecialchars($row["job_name"]) . " (Reference number: " . htmlspecialchars($row["job_reference"]) . ")</h2>";
                 echo "<p><strong>Brief Description:</strong> " . htmlspecialchars($row["job_description"]) . "</p>";
                 echo "<p><strong>Salary Range:</strong> " . htmlspecialchars($row["salary"]) . "</p>";
                 echo "<p><strong>Reporting To:</strong> " . htmlspecialchars($row["report_to"]) . "</p>";
+                echo "<section class=\"responsibilities\">";
                 echo "<p><strong>Key Responsibilities:</strong></p>";
         echo "<ul>";
         $responsibilities = explode(",", $row["responsibilities"]);
+
         foreach ($responsibilities as $responsibility) {
             echo "<li>" . htmlspecialchars(trim($responsibility)) . "</li>";
         }
-        echo "</ul>";
+    ?>
 
+        </ul>
+        </section>
+
+    <?php
+        echo "<section class=\"essential\">";
         echo "<p><strong>Essential:</strong> " . htmlspecialchars($row["essential"]) . "</p>";
+        echo "</section>";
+        echo "<section class=\"preferable\">";
         echo "<p><strong>Preferable:</strong> " . htmlspecialchars($row["preferable"]) . "</p>";
-
+        echo "</section>";
         echo "</div>";
         }
     } else {
         echo "<p>No jobs found.</p>";
     }
 
-$conn->close();
+    $conn->close();
     ?>
+    </section>
     <aside>
         <h3>BENEFITS</h3>
         <p><em>What&#39;s attractive about working at TechCareers?</em></p>
@@ -60,6 +80,9 @@ $conn->close();
         <h3>Lunch and travel allowances</h3>
         <p>We support monthly lunch money for all employees along with full allowances for travel and business-related expenses.</p>
     </aside>
+        </section>
+    </section>
+
     <?php
         include("footer.inc");
     ?>

@@ -150,11 +150,8 @@ $sql = "INSERT INTO eoi (job_reference, first_name, last_name, gender, street_ad
         VALUES ('$job_ref', '$first_name', '$last_name', '$gender', '$street_address', '$suburb_town', '$state', '$postcode', '$email_address', '$phone_number', '$other_skills')";
 
 if ($mysqli->query($sql)) {
-    $EOInumber = $mysqli->insert_id;
-
     // show confirmation page
     echo "<h2>Application Submitted Successfully</h2>";
-    echo "<p>Your EOI Number: <strong>$eoi_number</strong></p>";
 } else {
     die("Database error: " . $mysqli->error);
 }

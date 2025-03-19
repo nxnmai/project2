@@ -27,7 +27,7 @@
                 <div class="grilledoctopus-mb-15"> <!-- make space, add 15 pixels of space below-->
                     <label for="job_number" class="grilledoctopus-form-label">Job reference number</label>
                     <!-- about the class grilledoctopus-form-label, its mainly edit font-size and color-->
-                    <input type="text" id="job_number" name="job_reference_number" placeholder="FTD23 or AIE45"
+                    <input type="text" id="job_number" name="job_reference" placeholder="FTD23 or AIE45"
                         pattern="^[a-zA-Z0-9]{5}$" required
                         class="grilledoctopus-form-input grilledoctopus-form-input-size-30">
                     <!-- use placeholder for better navigation -->
@@ -53,7 +53,7 @@
                 <!-- DATE OF BIRTH ------->
                 <div class="grilledoctopus-mb-15">
                     <label for="birthday" class="grilledoctopus-form-label">Date of Birth</label>
-                    <input type="date" id="birthday" name="birthday" required class="grilledoctopus-form-input">
+                    <input type="text" id="birthday" name="birthday" placeholder="dd/mm/yyyy" required class="grilledoctopus-form-input">
                 </div>
 
                 <!-- GENDER ------->
