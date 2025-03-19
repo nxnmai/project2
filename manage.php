@@ -62,8 +62,9 @@
 	<meta name="keywords"    content="hr, manager, queries">
 	<meta name="author"      content="Grilled Octopus">
     <title>HR Manager - Manage EOIs</title>
-    <!-- CSS style file -->
+    <!-- CSS style file
     <link rel="stylesheet" href="styles/style.css">
+    -->
 </head>
 <body>
     <?php include 'menu.inc'; ?>
