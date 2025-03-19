@@ -1,7 +1,3 @@
-<?php
-    include("menu.inc");
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -17,17 +13,21 @@
 </head>
 
 <body>
+    <?php 
+        include("menu.inc");
+    ?>
+
     <!-- FORM BOX ----------------------------------------------------------------------------------------------------------------->
     <div class="grilloctopus-main-wrapper"> <!-- enable flexbox layout -->
         <div class="grilloctopus-form-wrapper"> <!-- edit form box size and add padding -->
 
-            <form class="form-border" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+            <form class="form-border" method="post" action="process_eoi.php" novalidate="novalidate">
 
                 <!-- JOB REFERENCE NUMBER ------>
                 <div class="grilledoctopus-mb-15"> <!-- make space, add 15 pixels of space below-->
                     <label for="job_number" class="grilledoctopus-form-label">Job reference number</label>
                     <!-- about the class grilledoctopus-form-label, its mainly edit font-size and color-->
-                    <input type="text" id="job_number" name="job reference number" placeholder="FTD23 or AIE45"
+                    <input type="text" id="job_number" name="job_reference_number" placeholder="FTD23 or AIE45"
                         pattern="^[a-zA-Z0-9]{5}$" required
                         class="grilledoctopus-form-input grilledoctopus-form-input-size-30">
                     <!-- use placeholder for better navigation -->
@@ -39,12 +39,12 @@
                     <label for="first_name" class="grilledoctopus-form-label">Name</label>
                     <div>
                         <label for="first_name"> <!-- First name here -->
-                            <input type="text" id="first_name" name="first name" placeholder="First name"
+                            <input type="text" id="first_name" name="first_name" placeholder="First name"
                                 pattern="^[a-zA-Z]{1,20}$" required class="grilledoctopus-form-input"> </label>
                         <!-- pattern = max 20 alpha characters -->
 
                         <label for="last_name"> <!-- Last name here -->
-                            <input type="text" id="last_name" name="last name" placeholder="Last name"
+                            <input type="text" id="last_name" name="last_name" placeholder="Last name"
                                 pattern="^[a-zA-Z]{1,20}$" required class="grilledoctopus-form-input"> </label>
                         <!-- pattern = max 20 alpha characters -->
                     </div>
@@ -53,7 +53,7 @@
                 <!-- DATE OF BIRTH ------->
                 <div class="grilledoctopus-mb-15">
                     <label for="birthday" class="grilledoctopus-form-label">Date of Birth</label>
-                    <input type="date" id="birthday" required class="grilledoctopus-form-input">
+                    <input type="date" id="birthday" name="birthday" required class="grilledoctopus-form-input">
                 </div>
 
                 <!-- GENDER ------->
@@ -87,13 +87,13 @@
                     <div>
                         <!-- STREET ADDRESS ------->
                         <label for="street_address">
-                            <input type="text" id="street_address" name="street address" placeholder="Street address"
+                            <input type="text" id="street_address" name="street_address" placeholder="Street address"
                                 pattern="^.{1,40}$" required class="grilledoctopus-form-input"> </label>
                         <!-- pattern = max 40 characters -->
 
                         <!-- SUBURD/TOWN -->
                         <label for="suburd_or_town">
-                            <input type="text" id="suburd_or_town" name="suburd/town" placeholder="Suburd / town"
+                            <input type="text" id="suburd_or_town" name="suburd_town" placeholder="Suburd / town"
                                 pattern="^.{1,40}$" required class="grilledoctopus-form-input"> </label>
                         <!-- pattern = max 40 characters -->
                     </div>
@@ -128,13 +128,13 @@
                     <div>
                         <!-- EMAIL ADDRESS ------->
                         <label for="email_address">
-                            <input type="email" id="email_address" name="email address" placeholder="Email address"
+                            <input type="email" id="email_address" name="email_address" placeholder="Email address"
                                 required class="grilledoctopus-form-input">
                         </label>
 
                         <!-- PHONE NUMBER ------->
                         <label for="phone_number">
-                            <input type="text" id="phone_number" name="phone number" placeholder="Phone number"
+                            <input type="text" id="phone_number" name="phone_number" placeholder="Phone number"
                                 pattern="^[0-9](?:[0-9 ]{7,11})[0-9]$" required class="grilledoctopus-form-input">
                         </label>
                         <!-- pattern = 8 to 12 digits, or spaces -->
@@ -149,32 +149,32 @@
                     <label class="grilledoctopus-form-label">Technical Skills</label>
 
                     <label for="FTD23_skill1" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="FTD23 Skill 1" id="FTD23_skill1" value="FTD23_skill1">Proficiency
+                        <input type="checkbox" name="skills[]" id="FTD23_skill1" value="FTD23_skill1">Proficiency
                         in JavaScript (ES6+), HTML5, and
                         CSS3.</label>
                     <label for="FTD23_skill2" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="FTD23 Skill 2" id="FTD23_skill2" value="FTD23_skill2">Experience
+                        <input type="checkbox" name="skills[]" id="FTD23_skill2" value="FTD23_skill2">Experience
                         with modern frontend frameworks (React.js, Vue.js,
                         or Angular).</label>
 
                     <label for="FTD23_skill3" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="FTD23 Skill 3" id="FTD23_skill3" value="FTD23_skill3">Strong
+                        <input type="checkbox" name="skills[]" id="FTD23_skill3" value="FTD23_skill3">Strong
                         understanding of CSS preprocessors (SASS/SCSS or
                         LESS).
                     </label>
 
                     <label for="FTD23_skill4" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="FTD23 Skill 4" id="FTD23_skill4" value="FTD23_skill4">Familiarity
+                        <input type="checkbox" name="skills[]" id="FTD23_skill4" value="FTD23_skill4">Familiarity
                         with RESTful APIs, GraphQL, and AJAX for data
                         fetching.</label>
 
                     <label for="FTD23_skill5" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="FTD23 Skill 5" id="FTD23_skill5" value="FTD23_skill5">Knowledge of
+                        <input type="checkbox" name="skills[]" id="FTD23_skill5" value="FTD23_skill5">Knowledge of
                         version control systems (Git, GitHub, GitLab).
                     </label>
 
                     <label for="FTD23_skill6" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="FTD23 Skill 6" id="FTD23_skill6" value="FTD23_skill6">Experience in
+                        <input type="checkbox" name="skills[]" id="FTD23_skill6" value="FTD23_skill6">Experience in
                         frontend performance optimization
                         (minification, lazy loading, asset bundling).
                     </label> <br> <br>
@@ -182,16 +182,16 @@
                     <label class="grilledoctopus-form-label">Soft Skills</label>
 
                     <label for="FTD23_skill7" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="FTD23 Skill 7" id="FTD23_skill7" value="FTD23_skill7">Strong
+                        <input type="checkbox" name="skills[]" id="FTD23_skill7" value="FTD23_skill7">Strong
                         analytical and problem-solving skills and critical thinking.
                     </label>
                     <label for="FTD23_skill8" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="FTD23 Skill 8" id="FTD23_skill8" value="FTD23_skill8">Excellent
+                        <input type="checkbox" name="skills[]" id="FTD23_skill8" value="FTD23_skill8">Excellent
                         communication and teamwork abilities.
                     </label>
 
                     <label for="FTD23_skill9" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="FTD23 Skill 9" id="FTD23_skill9" value="FTD23_skill9">Ability
+                        <input type="checkbox" name="skills[]" id="FTD23_skill9" value="FTD23_skill9">Ability
                         to work in fast-paced environments and meet deadlines.
                     </label> <br> <br>
                     <hr>
@@ -201,36 +201,36 @@
                     <label class="grilledoctopus-form-label">Technical Skills</label>
 
                     <label for="AIE45_skill1" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="AIE45 Skill 1" id="AIE45_skill1" value="AIE45_skill1">Strong
+                        <input type="checkbox" name="skills[]" id="AIE45_skill1" value="AIE45_skill1">Strong
                         programming skills in languages such as Python, R, or Java.</label>
                     <label for="AIE45_skill2" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="AIE45 Skill 2" id="AIE45_skill2" value="AIE45_skill2">Experience
+                        <input type="checkbox" name="skills[]" id="AIE45_skill2" value="AIE45_skill2">Experience
                         with machine learning frameworks and libraries (e.g.,
                         TensorFlow, PyTorch, scikit-learn).</label>
 
                     <label for="AIE45_skill3" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="AIE45 Skill 3" id="AIE45_skill3" value="AIE45_skill3">Proficiency
+                        <input type="checkbox" name="skills[]" id="AIE45_skill3" value="AIE45_skill3">Proficiency
                         in data analysis and visualization tools.
                     </label>
 
                     <label for="AIE45_skill4" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="AIE45 Skill 4" id="AIE45_skill4" value="AIE45_skill4">Excellent
+                        <input type="checkbox" name="skills[]" id="AIE45_skill4" value="AIE45_skill4">Excellent
                         problem-solving abilities with a focus on delivering
                         practical AI solutions.</label>
 
                     <label for="AIE45_skill5" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="AIE45 Skill 5" id="AIE45_skill5" value="AIE45_skill5">Strong
+                        <input type="checkbox" name="skills[]" id="AIE45_skill5" value="AIE45_skill5">Strong
                         understanding of statistical analysis and mathematical modeling.
                     </label> <br> <br>
 
                     <label class="grilledoctopus-form-label">Soft Skills</label>
 
                     <label for="AIE45_skill6" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="AIE45 Skill 6" id="AIE45_skill6" value="AIE45_skill6">Ability
+                        <input type="checkbox" name="skills[]" id="AIE45_skill6" value="AIE45_skill6">Ability
                         to clearly articulate complex technical concepts to non-technical audiences.
                     </label>
                     <label for="AIE45_skill7" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="AIE45 Skill 7" id="AIE45_skill7" value="AIE45_skill7">Strong
+                        <input type="checkbox" name="skills[]" id="AIE45_skill7" value="AIE45_skill7">Strong
                         written and verbal communication skills.
                     </label>
                 </fieldset>
@@ -239,7 +239,8 @@
                 <!--OTHER SKILLS -->
                 <div class="grilledoctopus-mb-15">
                     <label class="grilledoctopus-form-label">Other skills</label>
-                    <textarea class="textarea" placeholder="List and describe your other skills..."></textarea>
+                    <textarea class="textarea" name="other_skills"
+                        placeholder="List and describe your other skills..."></textarea>
                 </div>
 
                 <!--SEND and RESET BUTTONS -->
@@ -248,10 +249,8 @@
             </form>
         </div>
     </div>
+    <?php 
+        include("footer.inc");
+    ?>
 </body>
-
 </html>
-
-<?php
-    include("footer.inc");
-?>
