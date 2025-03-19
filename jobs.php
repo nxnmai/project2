@@ -19,7 +19,7 @@
         require_once("settings.php");
         $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
-        $sql = "SELECT job_name, job_reference, job_description, salary, report_to, responsibilities, essential, preferable FROM jobs";
+        $sql = "SELECT job_name, job_reference, job_description, salary, report_to, responsibilities, res_details, essential, preferable FROM jobs";
         $result = $conn->query($sql);
     ?>
 
@@ -34,22 +34,43 @@
 
     <?php
         if ($result->num_rows > 0) {
-            while ( $row = $result->fetch_assoc()){
+            while ($row = $result->fetch_assoc()){
                 echo "<h2>" . htmlspecialchars($row["job_name"]) . " (Reference number: " . htmlspecialchars($row["job_reference"]) . ")</h2>";
                 echo "<p><strong>Brief Description:</strong> " . htmlspecialchars($row["job_description"]) . "</p>";
                 echo "<p><strong>Salary Range:</strong> " . htmlspecialchars($row["salary"]) . "</p>";
                 echo "<p><strong>Reporting To:</strong> " . htmlspecialchars($row["report_to"]) . "</p>";
                 echo "<section class=\"responsibilities\">";
                 echo "<p><strong>Key Responsibilities:</strong></p>";
-        echo "<ul>";
-        $responsibilities = explode(",", $row["responsibilities"]);
+                echo "<ul>";
 
-        foreach ($responsibilities as $responsibility) {
-            echo "<li>" . htmlspecialchars(trim($responsibility)) . "</li>";
-        }
+                // Explode the responsibilities and sub-details
+                $responsibilities = explode("{", $row["responsibilities"]);
+                $responsibility_details = isset($row["res_details"]) ? explode("{", $row["res_details"]) : [];
+
+                // Ensure both arrays have the same length to avoid undefined index errors
+                $max = min(count($responsibilities), count($responsibility_details));
+
+                // Loop through responsibilities and pair them with their corresponding sub-details
+                for ($i = 0; $i < $max; $i++) {
+                    // Print the main responsibility
+                    $responsibility = trim($responsibilities[$i]);
+                    if (!empty($responsibility)) {
+                        echo "<li>" . htmlspecialchars($responsibility) . "</li>";
+                        
+                        // Print the corresponding sub-detail (if it exists)
+                        if (isset($responsibility_details[$i])) {
+                            $detail = trim($responsibility_details[$i]);
+                            if (!empty($detail)) {
+                                echo "<ul>";
+                                echo "<li>" . htmlspecialchars($detail) . "</li>";
+                                echo "</ul>";
+                            }
+                        }
+                    }
+                }
+                echo "</ul>";
+            
     ?>
-
-        </ul>
         </section>
 
     <?php
