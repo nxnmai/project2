@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <?php 
-        include("menu.inc");
+    <?php
+    include("menu.inc");
     ?>
 
     <!-- FORM BOX ----------------------------------------------------------------------------------------------------------------->
@@ -149,32 +149,32 @@
                     <label class="grilledoctopus-form-label">Technical Skills</label>
 
                     <label for="FTD23_skill1" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="FTD23_skill1" value="FTD23_skill1">Proficiency
+                        <input type="checkbox" name="FTD23_skills[]" id="FTD23_skill1" value="FTD23_skill1">Proficiency
                         in JavaScript (ES6+), HTML5, and
                         CSS3.</label>
                     <label for="FTD23_skill2" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="FTD23_skill2" value="FTD23_skill2">Experience
+                        <input type="checkbox" name="FTD23_skills[]" id="FTD23_skill2" value="FTD23_skill2">Experience
                         with modern frontend frameworks (React.js, Vue.js,
                         or Angular).</label>
 
                     <label for="FTD23_skill3" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="FTD23_skill3" value="FTD23_skill3">Strong
+                        <input type="checkbox" name="FTD23_skills[]" id="FTD23_skill3" value="FTD23_skill3">Strong
                         understanding of CSS preprocessors (SASS/SCSS or
                         LESS).
                     </label>
 
                     <label for="FTD23_skill4" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="FTD23_skill4" value="FTD23_skill4">Familiarity
+                        <input type="checkbox" name="FTD23_skills[]" id="FTD23_skill4" value="FTD23_skill4">Familiarity
                         with RESTful APIs, GraphQL, and AJAX for data
                         fetching.</label>
 
                     <label for="FTD23_skill5" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="FTD23_skill5" value="FTD23_skill5">Knowledge of
+                        <input type="checkbox" name="FTD23_skills[]" id="FTD23_skill5" value="FTD23_skill5">Knowledge of
                         version control systems (Git, GitHub, GitLab).
                     </label>
 
                     <label for="FTD23_skill6" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="FTD23_skill6" value="FTD23_skill6">Experience in
+                        <input type="checkbox" name="FTD23_skills[]" id="FTD23_skill6" value="FTD23_skill6">Experience in
                         frontend performance optimization
                         (minification, lazy loading, asset bundling).
                     </label> <br> <br>
@@ -182,16 +182,16 @@
                     <label class="grilledoctopus-form-label">Soft Skills</label>
 
                     <label for="FTD23_skill7" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="FTD23_skill7" value="FTD23_skill7">Strong
+                        <input type="checkbox" name="FTD23_skills[]" id="FTD23_skill7" value="FTD23_skill7">Strong
                         analytical and problem-solving skills and critical thinking.
                     </label>
                     <label for="FTD23_skill8" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="FTD23_skill8" value="FTD23_skill8">Excellent
+                        <input type="checkbox" name="FTD23_skills[]" id="FTD23_skill8" value="FTD23_skill8">Excellent
                         communication and teamwork abilities.
                     </label>
 
                     <label for="FTD23_skill9" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="FTD23_skill9" value="FTD23_skill9">Ability
+                        <input type="checkbox" name="FTD23_skills[]" id="FTD23_skill9" value="FTD23_skill9">Ability
                         to work in fast-paced environments and meet deadlines.
                     </label> <br> <br>
                     <hr>
@@ -201,36 +201,36 @@
                     <label class="grilledoctopus-form-label">Technical Skills</label>
 
                     <label for="AIE45_skill1" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="AIE45_skill1" value="AIE45_skill1">Strong
+                        <input type="checkbox" name="AIE45_skills[]" id="AIE45_skill1" value="AIE45_skill1">Strong
                         programming skills in languages such as Python, R, or Java.</label>
                     <label for="AIE45_skill2" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="AIE45_skill2" value="AIE45_skill2">Experience
+                        <input type="checkbox" name="AIE45_skills[]" id="AIE45_skill2" value="AIE45_skill2">Experience
                         with machine learning frameworks and libraries (e.g.,
                         TensorFlow, PyTorch, scikit-learn).</label>
 
                     <label for="AIE45_skill3" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="AIE45_skill3" value="AIE45_skill3">Proficiency
+                        <input type="checkbox" name="AIE45_skills[]" id="AIE45_skill3" value="AIE45_skill3">Proficiency
                         in data analysis and visualization tools.
                     </label>
 
                     <label for="AIE45_skill4" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="AIE45_skill4" value="AIE45_skill4">Excellent
+                        <input type="checkbox" name="AIE45_skills[]" id="AIE45_skill4" value="AIE45_skill4">Excellent
                         problem-solving abilities with a focus on delivering
                         practical AI solutions.</label>
 
                     <label for="AIE45_skill5" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="AIE45_skill5" value="AIE45_skill5">Strong
+                        <input type="checkbox" name="AIE45_skills[]" id="AIE45_skill5" value="AIE45_skill5">Strong
                         understanding of statistical analysis and mathematical modeling.
                     </label> <br> <br>
 
                     <label class="grilledoctopus-form-label">Soft Skills</label>
 
                     <label for="AIE45_skill6" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="AIE45_skill6" value="AIE45_skill6">Ability
+                        <input type="checkbox" name="AIE45_skills[]" id="AIE45_skill6" value="AIE45_skill6">Ability
                         to clearly articulate complex technical concepts to non-technical audiences.
                     </label>
                     <label for="AIE45_skill7" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="skills[]" id="AIE45_skill7" value="AIE45_skill7">Strong
+                        <input type="checkbox" name="AIE45_skills[]" id="AIE45_skill7" value="AIE45_skill7">Strong
                         written and verbal communication skills.
                     </label>
                 </fieldset>
@@ -249,8 +249,9 @@
             </form>
         </div>
     </div>
-    <?php 
-        include("footer.inc");
+    <?php
+    include("footer.inc");
     ?>
 </body>
+
 </html>
