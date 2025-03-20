@@ -68,126 +68,129 @@
 <body>
     <?php include 'menu.inc'; ?>
 
-    <h1>HR Manager - Manage Expressions of Interest</h1>
-
+    <h1 class="manage_title">HR Manager - Manage Expressions of Interest</h1>
+    
     <!-- Form for listing all EOIs -->
-    <h2>List All EOIs</h2>
+    <h2 class="manage">List All EOIs</h2>
     <form method="post">
         <input type="hidden" name="action" value="list_all">
         <input type="submit" value="Show All EOIs">
     </form>
 
     <!-- Form for listing EOIs by job reference -->
-    <h2>List EOIs by Job Reference Number</h2>
+    <h2 class="manage">List EOIs by Job Reference Number</h2>
     <form method="post">
-        <label for="job_ref">Job Reference Number:</label>
-        <input type="text" id="job_ref" name="job_ref" required>
+        <label class="label" for="job_ref">Job Reference Number:</label>
+        <input type="text" id="job_ref" name="job_ref" required> <br> <br>
         <input type="hidden" name="action" value="list_by_job">
         <input type="submit" value="Search">
     </form>
 
     <!-- Form for listing EOIs by applicant name -->
-    <h2>List EOIs by Applicant Name</h2>
+    <h2 class="manage">List EOIs by Applicant Name</h2>
     <form method="post">
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name">
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name">
-        <input type="hidden" name="action" value="list_by_name">
+        <label class="label" for="first_name">First Name:</label>
+        <input class="name" type="text" id="first_name" name="first_name"> <br>
+        <label class="label" for="last_name">Last Name:</label>
+        <input class="name" type="text" id="last_name" name="last_name">
+        <input type="hidden" name="action" value="list_by_name"> <br>
         <input type="submit" value="Search">
     </form>
 
     <!-- Form for deleting EOIs by job reference -->
-    <h2>Delete EOIs by Job Reference Number</h2>
+    <h2 class="manage">Delete EOIs by Job Reference Number</h2>
     <form method="post">
-        <label for="job_ref_delete">Job Reference Number:</label>
-        <input type="text" id="job_ref_delete" name="job_ref_delete" required>
+        <label class="label" for="job_ref_delete">Job Reference Number:</label>
+        <input type="text" id="job_ref_delete" name="job_ref_delete" required> <br> <br>
         <input type="hidden" name="action" value="delete_by_job">
         <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete all EOIs for this job reference?');">
     </form>
 
     <!-- Form for updating EOI status -->
-    <h2>Change EOI Status</h2>
+    <h2 class="manage">Change EOI Status</h2>
     <form method="post">
-        <label for="eoi_number">EOI Number:</label>
-        <input type="number" id="eoi_number" name="eoi_number" required>
-        <label for="status">New Status:</label>
+        <label class="label" for="eoi_number">EOI Number:</label>
+        <input class="name" type="number" id="eoi_number" name="eoi_number" required> <br>
+        <label class="label" for="status">New Status:</label>
         <select id="status" name="status" required>
             <option value="New">New</option>
             <option value="Current">Current</option>
             <option value="Final">Final</option>
-        </select>
+        </select> <br> <br>
         <input type="hidden" name="action" value="update_status">
         <input type="submit" value="Update Status">
     </form>
 
     <!-- Display results -->
     <?php if (is_object($result) && $result->num_rows > 0) { ?>
-        <h2>Results</h2>
-        <table>
-            <tr>
-                <th>EOI Number</th>
-                <th>Job Reference</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Street Address</th>
-                <th>Suburb/town</th>
-                <th>State</th>
-                <th>Postcode</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Status</th>
-                <th>Skill of Frontend Developer</th>
-                <th>Skill of Frontend Developer</th>
-                <th>Skill of Frontend Developer</th>
-                <th>Skill of Frontend Developer</th>
-                <th>Skill of Frontend Developer</th>
-                <th>Skill of Frontend Developer</th>
-                <th>Skill of Frontend Developer</th>
-                <th>Skill of Frontend Developer</th>
-                <th>Skill of Frontend Developer</th>
-                <th>Skill of AI Engineer</th>
-                <th>Skill of AI Engineer</th>
-                <th>Skill of AI Engineer</th>
-                <th>Skill of AI Engineer</th>
-                <th>Skill of AI Engineer</th>
-                <th>Skill of AI Engineer</th>
-                <th>Skill of AI Engineer</th>
-                <th>Other skills</th>
-            </tr>
-            <?php while ($row = $result->fetch_assoc()) { ?>
+        <h2 class="manage">Results</h2>
+        <div class="table-container">
+            <table class="manage_table">
                 <tr>
-                    <td><?php echo $row['EOInumber']; ?></td>
-                    <td><?php echo $row['job_reference']; ?></td>
-                    <td><?php echo $row['first_name']; ?></td>
-                    <td><?php echo $row['last_name']; ?></td>
-                    <td><?php echo $row['street_address']; ?></td>
-                    <td><?php echo $row['suburb']; ?></td>
-                    <td><?php echo $row['state']; ?></td>
-                    <td><?php echo $row['postcode']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td><?php echo $row['phone_number']; ?></td>
-                    <td><?php echo $row['status']; ?></td>
-                    <td><?php echo $row['FTD23_skill1']; ?></td>
-                    <td><?php echo $row['FTD23_skill2']; ?></td>
-                    <td><?php echo $row['FTD23_skill3']; ?></td>
-                    <td><?php echo $row['FTD23_skill4']; ?></td>
-                    <td><?php echo $row['FTD23_skill5']; ?></td>
-                    <td><?php echo $row['FTD23_skill6']; ?></td>
-                    <td><?php echo $row['FTD23_skill7']; ?></td>
-                    <td><?php echo $row['FTD23_skill8']; ?></td>
-                    <td><?php echo $row['FTD23_skill9']; ?></td>
-                    <td><?php echo $row['AIE45_skill1']; ?></td>
-                    <td><?php echo $row['AIE45_skill2']; ?></td>
-                    <td><?php echo $row['AIE45_skill3']; ?></td>
-                    <td><?php echo $row['AIE45_skill4']; ?></td>
-                    <td><?php echo $row['AIE45_skill5']; ?></td>
-                    <td><?php echo $row['AIE45_skill6']; ?></td>
-                    <td><?php echo $row['AIE45_skill7']; ?></td>
-                    <td><?php echo $row['other_skills']; ?></td>
+                    <th>EOI Number</th>
+                    <th>Job Reference</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Street Address</th>
+                    <th>Suburb/town</th>
+                    <th>State</th>
+                    <th>Postcode</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Skill of Frontend Developer</th>
+                    <th>Skill of Frontend Developer</th>
+                    <th>Skill of Frontend Developer</th>
+                    <th>Skill of Frontend Developer</th>
+                    <th>Skill of Frontend Developer</th>
+                    <th>Skill of Frontend Developer</th>
+                    <th>Skill of Frontend Developer</th>
+                    <th>Skill of Frontend Developer</th>
+                    <th>Skill of Frontend Developer</th>
+                    <th>Skill of AI Engineer</th>
+                    <th>Skill of AI Engineer</th>
+                    <th>Skill of AI Engineer</th>
+                    <th>Skill of AI Engineer</th>
+                    <th>Skill of AI Engineer</th>
+                    <th>Skill of AI Engineer</th>
+                    <th>Skill of AI Engineer</th>
+                    <th>Other skills</th>
                 </tr>
-            <?php } ?>
-        </table>
+                <?php while ($row = $result->fetch_assoc()) { ?>
+                    <tr>
+                        <td><?php echo $row['EOInumber']; ?></td>
+                        <td><?php echo $row['job_reference']; ?></td>
+                        <td><?php echo $row['first_name']; ?></td>
+                        <td><?php echo $row['last_name']; ?></td>
+                        <td><?php echo $row['street_address']; ?></td>
+                        <td><?php echo $row['suburb']; ?></td>
+                        <td><?php echo $row['state']; ?></td>
+                        <td><?php echo $row['postcode']; ?></td>
+                        <td><?php echo $row['email']; ?></td>
+                        <td><?php echo $row['phone_number']; ?></td>
+                        <td><?php echo $row['status']; ?></td>
+                        <td><?php echo $row['FTD23_skill1']; ?></td>
+                        <td><?php echo $row['FTD23_skill2']; ?></td>
+                        <td><?php echo $row['FTD23_skill3']; ?></td>
+                        <td><?php echo $row['FTD23_skill4']; ?></td>
+                        <td><?php echo $row['FTD23_skill5']; ?></td>
+                        <td><?php echo $row['FTD23_skill6']; ?></td>
+                        <td><?php echo $row['FTD23_skill7']; ?></td>
+                        <td><?php echo $row['FTD23_skill8']; ?></td>
+                        <td><?php echo $row['FTD23_skill9']; ?></td>
+                        <td><?php echo $row['AIE45_skill1']; ?></td>
+                        <td><?php echo $row['AIE45_skill2']; ?></td>
+                        <td><?php echo $row['AIE45_skill3']; ?></td>
+                        <td><?php echo $row['AIE45_skill4']; ?></td>
+                        <td><?php echo $row['AIE45_skill5']; ?></td>
+                        <td><?php echo $row['AIE45_skill6']; ?></td>
+                        <td><?php echo $row['AIE45_skill7']; ?></td>
+                        <td><?php echo $row['other_skills']; ?></td>
+                    </tr>
+                <?php } ?>
+            </table>
+        </div>
+        <br>
     <?php } elseif (is_string($result) && !empty($result)) { ?>
         <p><?php echo $result; ?></p>
     <?php } elseif (is_object($result) && $result->num_rows === 0) { ?>
