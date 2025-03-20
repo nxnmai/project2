@@ -149,7 +149,7 @@
                     <label class="grilledoctopus-form-label">Technical Skills</label>
 
                     <label for="FTD23_skill1" class="grilledoctopus-form-checkbox-container"> <br>
-                        <input type="checkbox" name="FTD23_skills" id="FTD23_skill1" value="FTD23_skill1">Proficiency
+                        <input type="checkbox" name="FTD23_skills" id="FTD23_skill1" value="skibidi">Proficiency
                         in JavaScript (ES6+), HTML5, and
                         CSS3.</label>
                     <label for="FTD23_skill2" class="grilledoctopus-form-checkbox-container"> <br>

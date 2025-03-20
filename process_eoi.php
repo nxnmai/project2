@@ -31,12 +31,6 @@ $email_address = $_POST["email_address"];
 $phone_number = $_POST["phone_number"];
 $other_skills = $_POST["other_skills"];
 
-if ($job_ref == "FTD23" || $job_ref == "ftd23") {
-    $skills_checked = $_POST["FTD23_skills"];
-} else if ($job_ref == "AIE45" || $job_ref == "aie45") {
-    $skills_checked = $_POST["AIE45_skills"];
-}
-
 // sanitize input
 $job_ref = sanitise_input($job_ref);
 $first_name = sanitise_input($first_name);
@@ -49,7 +43,12 @@ $postcode = sanitise_input($postcode);
 $email_address = sanitise_input($email_address);
 $phone_number = sanitise_input($phone_number);
 $other_skills = sanitise_input($other_skills);
-$skills_checked = isset($skills_checked);
+
+if ($job_ref == "FTD23" || $job_ref == "ftd23") {
+    $skills_checked = $_POST["FTD23_skills"];
+} else if ($job_ref == "AIE45" || $job_ref == "aie45") {
+    $skills_checked = $_POST["AIE45_skills"];
+}
 
 // initialize error messages
 $errMsg = "";
@@ -151,8 +150,8 @@ if (!empty($errMsg)) {
 // database Insertion
 $mysqli = new mysqli($host, $user, $pwd, $sql_db);
 
-$sql = "INSERT INTO eoi (job_reference, first_name, last_name, gender, street_address, suburb, state, postcode, email, phone_number, other_skills) 
-        VALUES ('$job_ref', '$first_name', '$last_name', '$gender', '$street_address', '$suburb_town', '$state', '$postcode', '$email_address', '$phone_number', '$other_skills')";
+$sql = "INSERT INTO eoi (job_reference, first_name, last_name, gender, street_address, suburb, state, postcode, email, phone_number, status, other_skills) 
+        VALUES ('$job_ref', '$first_name', '$last_name', '$gender', '$street_address', '$suburb_town', '$state', '$postcode', '$email_address', '$phone_number', 'New', '$other_skills')";
 
 if ($mysqli->query($sql)) {
     // show confirmation page
