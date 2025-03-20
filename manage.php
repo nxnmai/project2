@@ -124,7 +124,7 @@
     <!-- Display results -->
     <?php if (is_object($result) && $result->num_rows > 0) { ?>
         <h2>Results</h2>
-        <table border="1">
+        <table>
             <tr>
                 <th>EOI Number</th>
                 <th>Job Reference</th>
@@ -143,6 +143,11 @@
                 <th>Skill of Frontend Developer</th>
                 <th>Skill of Frontend Developer</th>
                 <th>Skill of Frontend Developer</th>
+                <th>Skill of Frontend Developer</th>
+                <th>Skill of Frontend Developer</th>
+                <th>Skill of Frontend Developer</th>
+                <th>Skill of AI Engineer</th>
+                <th>Skill of AI Engineer</th>
                 <th>Skill of AI Engineer</th>
                 <th>Skill of AI Engineer</th>
                 <th>Skill of AI Engineer</th>
@@ -169,11 +174,16 @@
                     <td><?php echo $row['FTD23_skill4']; ?></td>
                     <td><?php echo $row['FTD23_skill5']; ?></td>
                     <td><?php echo $row['FTD23_skill6']; ?></td>
+                    <td><?php echo $row['FTD23_skill7']; ?></td>
+                    <td><?php echo $row['FTD23_skill8']; ?></td>
+                    <td><?php echo $row['FTD23_skill9']; ?></td>
                     <td><?php echo $row['AIE45_skill1']; ?></td>
                     <td><?php echo $row['AIE45_skill2']; ?></td>
                     <td><?php echo $row['AIE45_skill3']; ?></td>
                     <td><?php echo $row['AIE45_skill4']; ?></td>
                     <td><?php echo $row['AIE45_skill5']; ?></td>
+                    <td><?php echo $row['AIE45_skill6']; ?></td>
+                    <td><?php echo $row['AIE45_skill7']; ?></td>
                     <td><?php echo $row['other_skills']; ?></td>
                 </tr>
             <?php } ?>
