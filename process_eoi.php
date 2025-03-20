@@ -44,7 +44,12 @@ $postcode = sanitise_input($postcode);
 $email_address = sanitise_input($email_address);
 $phone_number = sanitise_input($phone_number);
 $other_skills = sanitise_input($other_skills);
-$skills_checked = isset($skills_checked);
+
+if ($job_ref == "FTD23" || $job_ref == "ftd23") {
+    $skills_checked = $_POST["FTD23_skills[]"];
+} else if ($job_ref == "AIE45" || $job_ref == "aie45") {
+    $skills_checked = $_POST["AIE45_skills[]"];
+}
 
 // initialize error messages
 $errMsg = "";
