@@ -17,8 +17,15 @@
     // Perform actions based on user input
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($action === 'list_all') {
-            // List all EOIs
-            $query = "SELECT * FROM eoi";
+            // Get sort field from form, default to EOInumber if not set
+            $sort_field = isset($_POST['sort_field']) ? $conn->real_escape_string($_POST['sort_field']) : 'EOInumber';  // sanitized user input to prevent SQL injection
+            // Validate sort field to prevent SQL injection
+            $valid_sort_fields = ['EOInumber', 'job_reference', 'first_name', 'last_name', 'status'];
+            if (!in_array($sort_field, $valid_sort_fields)) {
+                $sort_field = 'EOInumber'; // Default fallback
+            }
+            // List all EOIs in order of sort_field
+            $query = "SELECT * FROM eoi ORDER BY $sort_field ASC";
             $result = $conn->query($query);
         } elseif ($action === 'list_by_job') {
             // List EOIs by job reference
@@ -70,9 +77,17 @@
 
     <h1 class="manage_title">HR Manager - Manage Expressions of Interest</h1>
     
-    <!-- Form for listing all EOIs -->
+    <!-- Form for listing all EOIs with sorting -->
     <h2 class="manage">List All EOIs</h2>
     <form method="post">
+        <label class="label" for="sort_field">Sort by:</label>
+        <select id="sort_field" name="sort_field">
+            <option value="EOInumber">EOI Number</option>
+            <option value="job_reference">Job Reference</option>
+            <option value="first_name">First Name</option>
+            <option value="last_name">Last Name</option>
+            <option value="status">Status</option>
+        </select>
         <input type="hidden" name="action" value="list_all">
         <input type="submit" value="Show All EOIs">
     </form>
