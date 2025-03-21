@@ -131,6 +131,8 @@
                     <th>Job Reference</th>
                     <th>First Name</th>
                     <th>Last Name</th>
+                    <th>Birthday</th>
+                    <th>Gender</th>
                     <th>Street Address</th>
                     <th>Suburb/town</th>
                     <th>State</th>
@@ -162,6 +164,8 @@
                         <td><?php echo $row['job_reference']; ?></td>
                         <td><?php echo $row['first_name']; ?></td>
                         <td><?php echo $row['last_name']; ?></td>
+                        <td><?php echo $row['birthday']; ?></td>
+                        <td><?php echo $row['gender']; ?></td>
                         <td><?php echo $row['street_address']; ?></td>
                         <td><?php echo $row['suburb']; ?></td>
                         <td><?php echo $row['state']; ?></td>

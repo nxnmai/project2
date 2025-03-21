@@ -31,6 +31,118 @@ $email_address = $_POST["email_address"];
 $phone_number = $_POST["phone_number"];
 $other_skills = $_POST["other_skills"];
 
+if (isset($_POST["FTD23_skill1"])) {
+    $FTD23_skill1 = $_POST["FTD23_skill1"];
+}
+if (empty($_POST["FTD23_skill1"])) {
+    $FTD23_skill1 = null;
+}
+
+if (isset($_POST["FTD23_skill2"])) {
+    $FTD23_skill2 = $_POST["FTD23_skill2"];
+}
+if (empty($_POST["FTD23_skill2"])) {
+    $FTD23_skill2 = null;
+}
+
+if (isset($_POST["FTD23_skill3"])) {
+    $FTD23_skill3 = $_POST["FTD23_skill3"];
+}
+if (empty($_POST["FTD23_skill3"])) {
+    $FTD23_skill3 = null;
+}
+
+if (isset($_POST["FTD23_skill4"])) {
+    $FTD23_skill4 = $_POST["FTD23_skill4"];
+}
+if (empty($_POST["FTD23_skill4"])) {
+    $FTD23_skill4 = null;
+}
+
+if (isset($_POST["FTD23_skill5"])) {
+    $FTD23_skill5 = $_POST["FTD23_skill5"];
+}
+if (empty($_POST["FTD23_skill5"])) {
+    $FTD23_skill5 = null;
+}
+
+if (isset($_POST["FTD23_skill6"])) {
+    $FTD23_skill6 = $_POST["FTD23_skill6"];
+}
+if (empty($_POST["FTD23_skill6"])) {
+    $FTD23_skill6 = null;
+}
+
+if (isset($_POST["FTD23_skill7"])) {
+    $FTD23_skill7 = $_POST["FTD23_skill7"];
+}
+if (empty($_POST["FTD23_skill7"])) {
+    $FTD23_skill7 = null;
+}
+
+if (isset($_POST["FTD23_skill8"])) {
+    $FTD23_skill8 = $_POST["FTD23_skill8"];
+}
+if (empty($_POST["FTD23_skill8"])) {
+    $FTD23_skill8 = null;
+}
+
+if (isset($_POST["FTD23_skill9"])) {
+    $FTD23_skill9 = $_POST["FTD23_skill9"];
+}
+if (empty($_POST["FTD23_skill9"])) {
+    $FTD23_skill9 = null;
+}
+
+if (isset($_POST["AIE45_skill1"])) {
+    $AIE45_skill1 = $_POST["AIE45_skill1"];
+}
+if (empty($_POST["AIE45_skill1"])) {
+    $AIE45_skill1 = null;
+}
+
+if (isset($_POST["AIE45_skill2"])) {
+    $AIE45_skill2 = $_POST["AIE45_skill2"];
+}
+if (empty($_POST["AIE45_skill2"])) {
+    $AIE45_skill2 = null;
+}
+
+if (isset($_POST["AIE45_skill3"])) {
+    $AIE45_skill3 = $_POST["AIE45_skill3"];
+}
+if (empty($_POST["AIE45_skill3"])) {
+    $AIE45_skill3 = null;
+}
+
+if (isset($_POST["AIE45_skill4"])) {
+    $AIE45_skill4 = $_POST["AIE45_skill4"];
+}
+if (empty($_POST["AIE45_skill4"])) {
+    $AIE45_skill4 = null;
+}
+
+if (isset($_POST["AIE45_skill5"])) {
+    $AIE45_skill5 = $_POST["AIE45_skill5"];
+}
+if (empty($_POST["AIE45_skill5"])) {
+    $AIE45_skill5 = null;
+}
+
+if (isset($_POST["AIE45_skill6"])) {
+    $AIE45_skill6 = $_POST["AIE45_skill6"];
+}
+if (empty($_POST["AIE45_skill6"])) {
+    $AIE45_skill6 = null;
+}
+
+if (isset($_POST["AIE45_skill7"])) {
+    $AIE45_skill7 = $_POST["AIE45_skill7"];
+}
+if (empty($_POST["AIE45_skill7"])) {
+    $AIE45_skill7 = null;
+}
+
 // sanitize input
 $job_ref = sanitise_input($job_ref);
 $first_name = sanitise_input($first_name);
@@ -43,12 +155,6 @@ $postcode = sanitise_input($postcode);
 $email_address = sanitise_input($email_address);
 $phone_number = sanitise_input($phone_number);
 $other_skills = sanitise_input($other_skills);
-
-if ($job_ref == "FTD23" || $job_ref == "ftd23") {
-    $skills_checked = $_POST["FTD23_skills"];
-} else if ($job_ref == "AIE45" || $job_ref == "aie45") {
-    $skills_checked = $_POST["AIE45_skills"];
-}
 
 // initialize error messages
 $errMsg = "";
@@ -138,7 +244,7 @@ if ($phone_number == "") {
 }
 
 // other skills validation
-if ($skills_checked && empty($other_skills)) {
+if (empty($other_skills)) {
     $errMsg .= "Please enter other skills if the checkbox is selected.";
 }
 
@@ -150,8 +256,8 @@ if (!empty($errMsg)) {
 // database Insertion
 $mysqli = new mysqli($host, $user, $pwd, $sql_db);
 
-$sql = "INSERT INTO eoi (job_reference, first_name, last_name, gender, street_address, suburb, state, postcode, email, phone_number, status, other_skills) 
-        VALUES ('$job_ref', '$first_name', '$last_name', '$gender', '$street_address', '$suburb_town', '$state', '$postcode', '$email_address', '$phone_number', 'New', '$other_skills')";
+$sql = "INSERT INTO eoi (job_reference, first_name, last_name, birthday, gender, street_address, suburb, state, postcode, email, phone_number, status, FTD23_skill1, FTD23_skill2, FTD23_skill3, FTD23_skill4, FTD23_skill5, FTD23_skill6, FTD23_skill7, FTD23_skill8, FTD23_skill9, AIE45_skill1, AIE45_skill2, AIE45_skill3, AIE45_skill4, AIE45_skill5, AIE45_skill6, AIE45_skill7, other_skills) 
+        VALUES ('$job_ref', '$first_name', '$last_name', '$birthday', '$gender', '$street_address', '$suburb_town', '$state', '$postcode', '$email_address', '$phone_number', 'New', '$FTD23_skill1', '$FTD23_skill2', '$FTD23_skill3', '$FTD23_skill4', '$FTD23_skill5', '$FTD23_skill6', '$FTD23_skill7', '$FTD23_skill8', '$FTD23_skill9', '$AIE45_skill1', '$AIE45_skill2', '$AIE45_skill3', '$AIE45_skill4', '$AIE45_skill5', '$AIE45_skill6', '$AIE45_skill7', '$other_skills')";
 
 if ($mysqli->query($sql)) {
     // show confirmation page
