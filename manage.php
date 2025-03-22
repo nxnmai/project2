@@ -88,6 +88,8 @@
             <option value="last_name">Last Name</option>
             <option value="status">Status</option>
         </select>
+        <br>
+        <br>
         <input type="hidden" name="action" value="list_all">
         <input type="submit" value="Show All EOIs">
     </form>
@@ -96,7 +98,9 @@
     <h2 class="manage">List EOIs by Job Reference Number</h2>
     <form method="post">
         <label class="label" for="job_ref">Job Reference Number:</label>
-        <input type="text" id="job_ref" name="job_ref" required> <br> <br>
+        <input type="text" id="job_ref" name="job_ref" required> 
+        <br> 
+        <br>
         <input type="hidden" name="action" value="list_by_job">
         <input type="submit" value="Search">
     </form>
@@ -105,10 +109,12 @@
     <h2 class="manage">List EOIs by Applicant Name</h2>
     <form method="post">
         <label class="label" for="first_name">First Name:</label>
-        <input class="name" type="text" id="first_name" name="first_name"> <br>
+        <input class="name" type="text" id="first_name" name="first_name"> 
+        <br>
         <label class="label" for="last_name">Last Name:</label>
         <input class="name" type="text" id="last_name" name="last_name">
-        <input type="hidden" name="action" value="list_by_name"> <br>
+        <input type="hidden" name="action" value="list_by_name"> 
+        <br>
         <input type="submit" value="Search">
     </form>
 
@@ -116,7 +122,9 @@
     <h2 class="manage">Delete EOIs by Job Reference Number</h2>
     <form method="post">
         <label class="label" for="job_ref_delete">Job Reference Number:</label>
-        <input type="text" id="job_ref_delete" name="job_ref_delete" required> <br> <br>
+        <input type="text" id="job_ref_delete" name="job_ref_delete" required> 
+        <br> 
+        <br>
         <input type="hidden" name="action" value="delete_by_job">
         <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete all EOIs for this job reference?');">
     </form>
@@ -125,13 +133,16 @@
     <h2 class="manage">Change EOI Status</h2>
     <form method="post">
         <label class="label" for="eoi_number">EOI Number:</label>
-        <input class="name" type="number" id="eoi_number" name="eoi_number" required> <br>
+        <input class="name" type="number" id="eoi_number" name="eoi_number" required> 
+        <br>
         <label class="label" for="status">New Status:</label>
         <select id="status" name="status" required>
             <option value="New">New</option>
             <option value="Current">Current</option>
             <option value="Final">Final</option>
-        </select> <br> <br>
+        </select> 
+        <br> 
+        <br>
         <input type="hidden" name="action" value="update_status">
         <input type="submit" value="Update Status">
     </form>
@@ -216,6 +227,7 @@
         <p>No records found.</p>
     <?php } ?>
 
+    <br>
     <?php include 'footer.inc'; ?>
 </body>
 </html>
