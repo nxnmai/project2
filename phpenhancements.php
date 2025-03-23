@@ -22,7 +22,7 @@
 			<section class="jobs-content">
 				<h1>PHP Enhancements</h1>
 				<!-- PHP enhancements made on page manage.php -->
-				<h2>Select the field to sort the order in which all EOI records are displayed</h2>
+				<h2>Select a field to sort the order in which all EOI records are displayed</h2>
 				<?php
 				// Include database connection settings
 				require_once "settings.php";
