@@ -24,7 +24,7 @@
             <dt>Bui Minh Duc --- s105691917 --- 105691917@student.swin.edu.au</dt> 
                 <dd>Team member, working on index and about pages</dd>       
         </dl>
-        <table>
+        <table class="timetable">
             <caption>Days and session times</caption>
                 <tr>
                     <td>Class</td>
@@ -51,9 +51,22 @@
         <dt>Le Quang Dinh</dt>
             <dd>I am a first year student at Swinburne University in Ho Chi Minh City, and my major is Data Science. I’m currently working on defining myself and improving thinking skills to look for better approaches in studying unique perspectives and in life.</dd>
         <dt>Bui Minh Duc</dt>
-            <dd>As a freshman in the IoT program at Swinburne, I'm thrilled to be part of such a dynamic and forward-thinking community.  I've always been fascinated by how technology can connect us and improve our lives, and I'm eager to learn the skills needed to bring my own ideas to life.</dd>        
+            <dd>As a freshman in the IoT program at Swinburne, I'm thrilled to be part of such a dynamic and forward-thinking community.  I've always been fascinated by how technology can connect us and improve our lives, and I'm eager to learn the skills needed to bring my own ideas to life. For coding, I have earned the knowledge of basic coding language such as HTML, CSS and PHP. </dd>        
     </dl>
-    <img src="images/group-photo.jpg" id="group-photo" alt="group photo"> <!--group photo-->
+    
+
+    <div class="contributions">
+        <img src="images/group-photo.jpg" id="group-photo" alt="group photo"> <!--group photo-->
+        <section>
+            <h2>Contributions</h2>
+            <p>Nguyen Xuan Nang Mai: Database Connection (setting.php), HR Management Page (manage.php) and Finalizing &#38; Uploading.</p>
+            <p>Le Quang Dinh: Create the EOI table in MySQL (eoi table), Implement process_eoi.php and Disable client-side validation (novalidate) in forms.</p>
+            <p>Bui Minh Duc: Convert existing HTML to PHP and implement include statements, Update the 'About' page (about.php), Style the website (CSS updates for job.php and manage.php) and Jobs Description Page (jobs.php) supported by Captain Nang Mai</p>
+            <h2>Shared responsibilities</h2>
+            <p>Enhancements (phpenhancements.html / phpenhancements.php), Group Presentation (Week 12) and Testing &#38; Debugging before submission.</p>
+        </section>
+    </div>
+    
     <?php
         include("footer.inc");
     ?>
